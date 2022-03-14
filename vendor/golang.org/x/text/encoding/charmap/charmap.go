@@ -19,7 +19,7 @@ import (
 
 
 // All is a list of all defined encodings in this package.
-var All []encoding.Encoding = make([]encoding.Encoding,1)
+var All []encoding.Encoding = []encoding.Encoding{ISO8859_1}
 
 // TODO: implement these encodings, in order of importance.
 // ASCII, ISO8859_1:       Rather common. Close to Windows 1252.

@@ -132,7 +132,6 @@ const defaultBufSize = 4096
 // NewReader returns a new Reader that wraps r by transforming the bytes read
 // via t. It calls Reset on t.
 func NewReader(r io.Reader, t Transformer) *Reader {
-	t.Reset()
 	return &Reader{
 		r:   r,
 		t:   t,
@@ -219,7 +218,6 @@ type Writer struct {
 // NewWriter returns a new Writer that wraps w by transforming the bytes written
 // via t. It calls Reset on t.
 func NewWriter(w io.Writer, t Transformer) *Writer {
-	t.Reset()
 	return &Writer{
 		w:   w,
 		t:   t,
@@ -566,7 +564,6 @@ const initialBufSize = 128
 // String returns a string with the result of converting s[:n] using t, where
 // n <= len(s). If err == nil, n will be len(s). It calls Reset on t.
 func String(t Transformer, s string) (result string, n int, err error) {
-	t.Reset()
 	if s == "" {
 		// Fast path for the common case for empty input. Results in about a
 		// 86% reduction of running time for BenchmarkStringLowerEmpty.
@@ -690,7 +687,6 @@ func Append(t Transformer, dst, src []byte) (result []byte, n int, err error) {
 }
 
 func doAppend(t Transformer, pDst int, dst, src []byte) (result []byte, n int, err error) {
-	t.Reset()
 	pSrc := 0
 	for {
 		nDst, nSrc, err := t.Transform(dst[pDst:], src[pSrc:], true)
