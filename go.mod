@@ -1,4 +1,4 @@
-module headerencodingfix
+module github.com/nilskohrs/headerencodingfix
 
 go 1.17
 

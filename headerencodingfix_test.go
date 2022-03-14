@@ -2,10 +2,11 @@ package headerencodingfix_test
 
 import (
 	"context"
-	"headerencodingfix"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/nilskohrs/headerencodingfix"
 )
 
 func TestShouldEncodeHeader(t *testing.T) {
