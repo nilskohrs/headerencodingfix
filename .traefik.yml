@@ -1,0 +1,8 @@
+displayName: "RFC 2047 Header Encoding Fix"
+type: middleware
+
+import: github.com/nilskohrs/headerencondigfix
+
+summary: "Encode request header values by RFC 2047"
+
+testData: ~
