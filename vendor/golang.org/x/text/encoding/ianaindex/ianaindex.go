@@ -19,11 +19,6 @@ import (
 	"golang.org/x/text/encoding"
 	"golang.org/x/text/encoding/charmap"
 	"golang.org/x/text/encoding/internal/identifier"
-	"golang.org/x/text/encoding/japanese"
-	"golang.org/x/text/encoding/korean"
-	"golang.org/x/text/encoding/simplifiedchinese"
-	"golang.org/x/text/encoding/traditionalchinese"
-	"golang.org/x/text/encoding/unicode"
 )
 
 // TODO: remove the "Status... incomplete" in the package doc comment.
@@ -155,10 +150,6 @@ func mibName(x int) string {
 
 var encodings = [numIANA]encoding.Encoding{
 	enc3:    asciiEnc,
-	enc106:  unicode.UTF8,
-	enc1015: unicode.UTF16(unicode.BigEndian, unicode.UseBOM),
-	enc1013: unicode.UTF16(unicode.BigEndian, unicode.IgnoreBOM),
-	enc1014: unicode.UTF16(unicode.LittleEndian, unicode.IgnoreBOM),
 	enc2028: charmap.CodePage037,
 	enc2011: charmap.CodePage437,
 	enc2009: charmap.CodePage850,
@@ -203,12 +194,4 @@ var encodings = [numIANA]encoding.Encoding{
 	enc2256: charmap.Windows1256,
 	enc2257: charmap.Windows1257,
 	enc2258: charmap.Windows1258,
-	enc18:   japanese.EUCJP,
-	enc39:   japanese.ISO2022JP,
-	enc17:   japanese.ShiftJIS,
-	enc38:   korean.EUCKR,
-	enc114:  simplifiedchinese.GB18030,
-	enc113:  simplifiedchinese.GBK,
-	enc2085: simplifiedchinese.HZGB2312,
-	enc2026: traditionalchinese.Big5,
 }
