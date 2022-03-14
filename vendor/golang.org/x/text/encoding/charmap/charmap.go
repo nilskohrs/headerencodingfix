@@ -17,45 +17,6 @@ import (
 	"golang.org/x/text/transform"
 )
 
-// These encodings vary only in the way clients should interpret them. Their
-// coded character set is identical and a single implementation can be shared.
-var (
-	// ISO8859_6E is the ISO 8859-6E encoding.
-	ISO8859_6E encoding.Encoding = &iso8859_6E
-
-	// ISO8859_6I is the ISO 8859-6I encoding.
-	ISO8859_6I encoding.Encoding = &iso8859_6I
-
-	// ISO8859_8E is the ISO 8859-8E encoding.
-	ISO8859_8E encoding.Encoding = &iso8859_8E
-
-	// ISO8859_8I is the ISO 8859-8I encoding.
-	ISO8859_8I encoding.Encoding = &iso8859_8I
-
-	iso8859_6E = internal.Encoding{
-		Encoding: ISO8859_6,
-		Name:     "ISO-8859-6E",
-		MIB:      identifier.ISO88596E,
-	}
-
-	iso8859_6I = internal.Encoding{
-		Encoding: ISO8859_6,
-		Name:     "ISO-8859-6I",
-		MIB:      identifier.ISO88596I,
-	}
-
-	iso8859_8E = internal.Encoding{
-		Encoding: ISO8859_8,
-		Name:     "ISO-8859-8E",
-		MIB:      identifier.ISO88598E,
-	}
-
-	iso8859_8I = internal.Encoding{
-		Encoding: ISO8859_8,
-		Name:     "ISO-8859-8I",
-		MIB:      identifier.ISO88598I,
-	}
-)
 
 // All is a list of all defined encodings in this package.
 var All []encoding.Encoding = make([]encoding.Encoding,1)

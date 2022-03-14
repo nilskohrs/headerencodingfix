@@ -7,7 +7,7 @@ import (
 	"net/http"
 
 	"golang.org/x/text/encoding"
-	"golang.org/x/text/encoding/ianaindex"
+	"golang.org/x/text/encoding/charmap"
 )
 
 // Config the plugin configuration.
@@ -26,14 +26,9 @@ type headerEncodingFix struct {
 
 // New creates a new headerEncodingFix plugin.
 func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
-	encoding, err := ianaindex.MIME.Encoding("latin1")
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	return &headerEncodingFix{
 		next:    next,
-		encoder: encoding.NewEncoder(),
+		encoder: charmap.ISO8859_1.NewEncoder(),
 	}, nil
 }
 
