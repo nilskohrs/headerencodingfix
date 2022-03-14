@@ -26,14 +26,14 @@ type headerEncodingFix struct {
 
 // New creates a new headerEncodingFix plugin.
 func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
-	e, err := ianaindex.MIME.Encoding("latin1")
+	encoding, err := ianaindex.MIME.Encoding("latin1")
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	return &headerEncodingFix{
 		next:    next,
-		encoder: e.NewEncoder(),
+		encoder: encoding.NewEncoder(),
 	}, nil
 }
 
